@@ -1,0 +1,24 @@
+body {
+	background: #F2F2F2;
+	/* background-image: url('../images/clip-hanger.png');
+    background-repeat: no-repeat;
+    background-size: 100%; */
+}
+.bg-danger, .bg-success {
+	padding: 0 5px;
+    border-radius: 4px;
+    padding: 10px;
+}
+a {
+	color: #EF1F2F;
+	text-decoration: none;
+}
+.container #main-content{
+margin-top:150px;
+}
+input[type=file] {
+    display: inline;
+}
+/* #fields input{
+width:40%;
+} */

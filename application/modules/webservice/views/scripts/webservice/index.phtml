@@ -1,0 +1,88 @@
+<div class="apiform">
+<form enctype="multipart/form-data">
+<div class="apiformurl">
+<div style="font-size: 21px;color:#333;">URL</div>
+<select class="form-item" id="sort" onchange="getInputFields(this)">
+    <option value = "" selected>Select</option>
+    <!--<option value="1">api/users/signup</option>
+    
+	<option value="1">api/admin/new-data-update</option>
+	<option value="1">api/admin/signup</option>
+	<option value="1">api/admin/signup-page</option>
+	<option value="1">api/admin/signin-page</option>-->
+	<option value="1">api/showroom/get-showroom-cars</option>
+	<option value="1">api/showroom/car-details</option>
+	<option value="1">api/showroom/dealer-list</option>
+	<option value="1">api/showroom/dealer-details</option>
+	<option value="1">api/showroom/car-filter</option>
+	<option value="1">api/showroom/dealer-make-cars</option>
+	<option value="1">api/showroom/showroom-website</option>
+	<option value="1">api/showroom/dealer-carlist</option>
+	<option value="1">api/showroom/network-project</option>
+	<option value="1">api/dealership/dealer-signup</option>
+	<option value="1">api/register/signup</option>
+	
+	
+	
+	
+</select>
+</div>
+<div class="apiformmethod">
+<div style="font-size: 21px;color:#333;">Method</div>
+<input style="margin: 15px 5px 0px 24px;" type="radio" name="method" value="GET" id="GET" disabled>
+<span id="getlabel" style="font-size: 21px;font-weight:bold;color:#333;opacity:.1;">GET</span></br>
+<input style="margin: 15px 5px 0px 24px;" type="radio" name="method" value="POST" id="POST" disabled>
+<span id="postlabel" style="font-size: 21px;font-weight:bold;color:#333;opacity:.1;">POST</span>
+</div></br>
+<div class="apiformparam">
+<div style="font-size: 21px;color:#333;">Specify Input Parameters</div>
+<div id="fields" style="display: none;width:100%;">
+<table style="width:100%;" id="fieldsdata"><!--<tr><td>
+<div id="fieldsleft"></div></td><td> 
+<div id="fieldsright">
+</div></td></tr>--></table>
+<progress id="progressBar" value="0" max="100" style="width:300px;display:none;"></progress>
+<p id="loaded_n_total" style="display:none;"></p>
+<div id="token" style="display: none;">24462a501a5aa6ca239d1ade0fc90c9c</div>
+</div>
+<input style="display:none" onclick="addFields()" type="button" id="addmore" value="Add More Fields">
+<input style="display:none" onclick="addImageFields()" type="button" id="addimages" value="Add Image Fields">
+</div>
+<div class="apiformquery">
+<input type="button" onclick="makeQuery()" id="viewresponse" value="View Response">
+<div style="font-size: 21px;color:#333;">Query</div>
+<div class="queryform">
+       
+        <label class="queryform-input" id="url-query" style="width:100%;">
+            <span class="queryform-input_text" id="base-url"><?php echo SERVER_URL;?></span>
+            <!--<span class="queryform-input_text" id="base-video-url" style="display:none">http://carzillaapp.com/Pilotapp_Test/PilotappVideo/public/</span>-->
+            <span class="queryform-input_field-holder">
+                <input name="query" id="query" value="" class="queryform-input_field" tabindex="1" style="width:50%;">
+            </span>
+        </label>
+</div>
+<div id="demo"></div>
+</div>
+</form>
+<div class="apiformresponse">
+<div style="font-size: 21px;color:#333;">Response</div>
+
+<div id="wait" style="display:none;margin: -24% 0% -23% 10%;">
+<img src='<?php echo $this->baseUrl()?>/public/images/loader-bar.gif'/>
+</div>
+<pre class="headers"><code id=Header></code></pre>
+<pre class="body-response"><code id=Response></code></pre>
+</div>
+</div>
+<script type="text/javascript">
+function testbodycontent(status,responsemethod,host,contentType,contentLength,link,response)
+{
+// document.getElementById("wait").style.display="none";
+document.getElementById("Response").innerHTML="";
+var headers = "Host: "+host+"</br>Link: "+link+"</br>Status: "+status+"</br>Method: "+responsemethod+"</br>"+
+			"Content-Type: "+contentType+"</br>Content-Length: "+contentLength;
+
+$('#Header').html(headers);
+$('#Response').html(library.json.prettyPrint(JSON.parse(response)));
+}
+</script>
